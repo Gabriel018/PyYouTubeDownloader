@@ -20,9 +20,11 @@ def progress(stream,chunk,bytes_remainig):
     if liveprogress > previoprogress:
         previoprogress = liveprogress
         print(liveprogress)
-p1 = YouTube("https://www.youtube.com/watch?v=Z-VfaG9ZN_U")
+
+url = input("Digite seu Url")
+p1 = (YouTube(url))
 p1.register_on_progress_callback(progress)
-p1.streams.first().download("c:/Users/User/Desktop\study")
+p1.streams.first().download("c:/Users/User/Desktop\study\Teste")
 
 
 
