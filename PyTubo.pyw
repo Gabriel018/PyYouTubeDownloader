@@ -2,27 +2,24 @@ from pytube import YouTube
 import PySimpleGUI as py
 
 
-
+py.theme('Dark green 3')
 def main():
 
     layout = [
-              [ py.Text("digite o link")],
-              [py.Input(size=(20,2),key='link')],
-               [py.Button("Baixar")]
+              [ py.Text("Digite o link para Download:",font='Arial 12')],
+              [py.Input(size=(34,2),key='link')],
+              [py.Button("Baixar",font='Arial 12')]
     ]
-
-    janela = py.Window("Video_Download",layout)
+    janela = py.Window("Video_Download",layout,size=(300,200))
 
     while True:
        event,values = janela.read()
 
        linkv = values['link']
 
-
        pv = YouTube(linkv)
        if event == 'Baixar':
          pv. streams.get_by_resolution(resolution='720p').download('C:\PysimpleGui')
-
 
 
 if __name__ == "__main__":
