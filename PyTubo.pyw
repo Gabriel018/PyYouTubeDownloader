@@ -9,7 +9,7 @@ def main():
               [ py.Text("Digite o link para Download:",font='Arial 12')],
               [py.Input(size=(34,2),key='link')],
               [py.Text("Escolha onde salvar o arquivo", font='Arial 12')],
-              [py.Input(size=(34, 2), key='savelink'),py.FolderBrowse()],
+              [py.Input(size=(28, 2), key='savelink'),py.FolderBrowse()],
               [py.Button("Baixar",font='Arial 12')]
     ]
     janela = py.Window("Video_Download",layout,size=(300,200))
