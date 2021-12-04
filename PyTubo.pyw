@@ -1,3 +1,5 @@
+import sys
+
 from pytube import YouTube
 import PySimpleGUI as py
 
@@ -10,7 +12,8 @@ def main():
               [py.Input(size=(34,2),key='link')],
               [py.Text("Escolha onde salvar o arquivo", font='Arial 12')],
               [py.Input(size=(28, 2), key='savelink'),py.FolderBrowse()],
-              [py.Button("Baixar",font='Arial 12')]
+              [py.Button("Video",font='Arial 12'),py.Button("Audio",font='Arial 12'),
+               py.Button("Sair",font='Arial 12',button_color='red')]
     ]
     janela = py.Window("Video_Download",layout,size=(300,200))
 
@@ -19,9 +22,11 @@ def main():
        linkv = values['link']
        savelink = values['savelink']
        pv = YouTube(linkv)
-       if event == 'Baixar':
+       if event == 'Video':
          pv. streams.get_by_resolution(resolution='720p').download(savelink)
-
-
+       if event == 'Audio':
+        pv.streams.get_audio_only().download(savelink)
+       if event == 'Sair':
+        sys.exit()
 if __name__ == "__main__":
     main()
