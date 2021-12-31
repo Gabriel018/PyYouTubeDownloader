@@ -31,17 +31,17 @@ def main():
                video = YouTube(linkv)
 
                if event == 'Video':
-                 video.streams.get_by_resolution(resolution='720p').download(savelink)
                  py.popup(" titulo do video:  ", video.title, font="arial 13")
-                 py.popup_notify("Aguarde o Donwload ser concluido ",fade_in_duration=8)
+                 py.popup_notify("Aguarde o Donwload ser concluido.. ", fade_in_duration=8)
+                 video.streams.get_by_resolution(resolution='720p').download(savelink)
                  janela.find_element('link').update('')
                  janela.find_element('savelink').update('')
-                 py.popup("Download concluido",font="arial 13",text_color="blue")
+                 py.popup("Download concluido",font="arial 13")
 
                if event == 'Audio':
-                video. streams.get_audio_only().download(savelink)
                 py.popup(" titulo do video:  ", video.title, font="arial 13")
-                py.popup("Download concluido", font="arial 13", text_color="blue")
+                py.popup("Download concluido...", font="arial 13", text_color="blue")
+                video. streams.get_audio_only().download(savelink)
                 janela.find_element('link').update('')
                 janela.find_element('savelink').update('')
                 py.popup("Download concluido", font="arial 13")
